@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stevan Radojčin | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+ <header class="header">
+  <div class="logo"><img src="images/logo.png" alt="Logo"></div>
+
+  <nav class="nav-links">
+    <a href="#about">O meni</a>
+    <a href="radovi.html">Portfolio</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+
+  <section class="hero">
+    <div class="hero-text">
+      <p><b>ĆAO!</b></p>
+      <h1>JA SAM <span class="bgcl" data-text="Stevan">Stevan</span></h1>
+      <p>Portretni fotograf i vizuelni umetnik</p>
+      <div class="hero-icons">
+        <a href="https://www.instagram.com/stewdzi.ph/"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com/stevan.radojcin"><i class="fab fa-facebook"></i></a>
+      </div>
+      <br />
+      <a href="#portfolio" class="button">Upoznajte moj rad</a>
+    </div>
+    <div class="hero-image">
+      <img src="images/naslovna.png" alt="Photographer"  />
+</div>
+  </section>
+<style>
+  .bgcl {
+   position: relative;
+    color: #fff;
+    -webkit-animation-stroke: 00.3s rgb(169, 88, 48) ;
+    text-transform: uppercase;
+  }
+ .bgcl::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #ff7631ff;
+    -webkit-background-stroke: 00.3px #ff7631ff;
+    border-right: 2px solid #ff7631ff;
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+  } 
+  @keyframes animate {
+  0% {
+    width: 0;
+  }
+  25% {
+    width: 80%;
+  }
+  50% {
+    width: 100%;
+  }
+  60% {
+    width: 100%;
+  }
+  75% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+</style>
+<section class="about fade-section" id="about">
+  <div class="about-content">
+    <h2>O meni</h2>
+    <p>Ja sam Stevan Radojčin, portretni fotograf i vizuelni umetnik iz Srbije, rođen 2000. godine.  
+Moja strast prema fotografiji ogleda se u hvatanju autentičnih emocija i izraza koji govore više od reči.  
+Spajam savremeni stil sa dubinom, uvek tragajući za pričom koja se krije iza pogleda</p>
+  </div>
+</section>
+
+  <section class="stats fade-section">
+    <div class="stat">
+      <h2>98</h2>
+      <p>Zadovoljnih klijenata</p>
+    </div>
+    <div class="stat">
+      <h2>54</h2>
+      <p>Završenih projekata</p>
+    </div>
+    <div class="stat">
+      <h2>9/10</h2>
+      <p>Prosečna ocena</p>
+    </div>
+  </section>
+
+<section class="gallery fade-section" id="portfolio">
+  <h2>Moj rad</h2>
+  <div class="gallery-grid">
+    <img src="images/image1.jpg" alt="Slika 1" class="lightbox-thumb">
+    <img src="images/image2.jpg" alt="Slika 2" class="lightbox-thumb">
+    <img src="images/image6.jpg" alt="Slika 3" class="lightbox-thumb">
+    <img src="images/image7.jpg" alt="Slika 4" class="lightbox-thumb">
+    <img src="images/image8.jpg" alt="Slika 1" class="lightbox-thumb">
+    <!-- Dodaj još slika po potrebi -->
+  </div>
+
+  <div class="lightbox" id="lightbox" style="display:none;">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+
+    <div class="lightbox-controls">
+      <button class="lightbox-prev" id="lightbox-prev">&#8592;</button>
+      <button class="lightbox-next" id="lightbox-next">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="contact-section fade-section" id="contact">
+  <div class="contact-wrapper">
+    <div class="contact-image">
+      <img src="images/portrait.jpeg" alt="Contact Image">
+    </div>
+    <div>
+      <h2>KONTAKT</h2>
+      <p>
+        Ako ti treba više informacija o mom radu, uslugama koje nudim ili želiš da me angažuješ,<br>
+        klikni na dugme ispod i javi mi se direktno preko WhatsApp-a
+      </p>
+
+      <a class="whatsapp-btn"
+         href="https://wa.me/381641284743?text=Zdravo%2C%20želim%20više%20informacija%20o%20tvojim%20uslugama."
+         target="_blank">
+        <i class="fab fa-whatsapp"></i> Pošalji poruku
+      </a>
+    </div>
+  </div>
+</section>
+<style>
+    .contact-section {
+      padding: 60px 20px;
+      background-color: #f9f5ff;
+      font-family: "Montserrat", sans-serif;
+      color: #14213d;
+    }
+
+    .contact-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .contact-image {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .contact-image img {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+    }
+
+    .contact-wrapper > div:last-child {
+      flex: 1 1 400px;
+    }
+
+    .contact-wrapper h2 {
+      font-size: 48px;
+      color: #14213d;
+      margin-bottom: 20px;
+    }
+
+    .contact-wrapper p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      color: #444;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: #25d366;
+      color: white;
+      padding: 14px 26px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d;
+      transition: background-color 0.3s ease;
+    }
+
+    .whatsapp-btn i {
+      margin-right: 12px;
+      font-size: 22px;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .contact-wrapper {
+        flex-direction: column;
+      }
+
+      .contact-wrapper > div:last-child {
+        flex: unset;
+        width: 100%;
+      }
+
+      .contact-image {
+        flex: unset;
+        width: 100%;
+      }
+    }
+  </style>
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Stevan Radojčin. Sva prava zadržana.</p>
+    <div class="footer-socials">
+      <a href="https://instagram.com/stewdzili" target="_blank">Instagram</a>
+      <a href="mailto:stevan.radojcin123@gmail.com">Email</a>
+      <a href="tel:0641284743">Telefon</a>
+    </div>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
