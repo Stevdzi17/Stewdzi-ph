@@ -1,268 +1,377 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stevan Radojčin | Portfolio</title>
+
+  <!-- Font Awesome (samo jedna verzija) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
 </head>
 <body>
 
- <header class="header">
-  <div class="logo"><img src="images/logo.png" alt="Logo"></div>
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
 
-  <nav class="nav-links">
-    <a href="#about">O meni</a>
-    <a href="radovi.html">Portfolio</a>
-    <a href="#contact">Kontakt</a>
-  </nav>
+  <!-- Particle canvas -->
+  <canvas id="particleCanvas"></canvas>
 
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</header>
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="logo">
+      <img src="images/logo.png" alt="Stewdzi Photography Logo" />
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about" class="nav-link">O meni</a>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#services" class="nav-link">Usluge</a>
+      <a href="#pricing" class="nav-link">Paketi</a>
+      <a href="#contact" class="nav-link">Kontakt</a>
+    </nav>
+    <div class="hamburger" id="hamburger" aria-label="Otvori meni" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
 
+  <main>
 
-  <section class="hero">
-    <div class="hero-text">
-      <p><b>ĆAO!</b></p>
-      <h1>JA SAM <span class="bgcl" data-text="Stevan">Stevan</span></h1>
-      <p>Portretni fotograf i vizuelni umetnik</p>
-      <div class="hero-icons">
-        <a href="https://www.instagram.com/stewdzi.ph/"><i class="fab fa-instagram"></i></a>
-        <a href="https://facebook.com/stevan.radojcin"><i class="fab fa-facebook"></i></a>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-text">
+        <p class="hero-eyebrow reveal-text">ĆAO!</p>
+        <h1 class="hero-title">JA SAM <span class="name-anim" data-text="Stevan">Stevan</span></h1>
+        <p class="hero-sub reveal-text delay-2">Portretni fotograf i vizuelni umetnik</p>
+        <div class="hero-icons reveal-text delay-3">
+          <a href="https://www.instagram.com/stewdzi.ph/" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://facebook.com/stevan.radojcin" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </div>
+        <a href="#portfolio" class="button reveal-text delay-4">Upoznajte moj rad</a>
       </div>
-      <br />
-      <a href="#portfolio" class="button">Upoznajte moj rad</a>
+
+      <div class="hero-image reveal-right">
+        <div class="hero-img-wrapper">
+          <img src="images/naslovna.png" alt="Stevan Radojčin fotograf" />
+          <div class="hero-img-glow"></div>
+          <div class="hero-img-ring ring-1"></div>
+          <div class="hero-img-ring ring-2"></div>
+          <div class="hero-img-ring ring-3"></div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="scroll-line"></div>
+        <span>Skroluj</span>
+      </div>
+    </section>
+
+    <!-- O MENI -->
+    <section class="about fade-section" id="about">
+      <div class="about-inner">
+        <div class="about-label">O meni</div>
+        <h2 class="section-title">Hvatam priče <br/><em>koje reči ne mogu</em></h2>
+        <p>Ja sam Stevan Radojčin, portretni fotograf i vizuelni umetnik iz Srbije, rođen 2000. godine.
+          Moja strast prema fotografiji ogleda se u hvatanju autentičnih emocija i izraza koji govore više od reči.
+          Spajam savremeni stil sa dubinom, uvek tragajući za pričom koja se krije iza pogleda.</p>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats fade-section" aria-label="Statistika">
+      <div class="stat tilt-card">
+        <div class="stat-number" data-target="98">0</div>
+        <p>Zadovoljnih klijenata</p>
+      </div>
+      <div class="stat tilt-card">
+        <div class="stat-number" data-target="54">0</div>
+        <p>Završenih projekata</p>
+      </div>
+      <div class="stat tilt-card">
+        <div class="stat-number" data-target="9">0</div>
+        <p>Prosečna ocena (od 10)</p>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO GALERIJA -->
+    <section class="gallery fade-section" id="portfolio" aria-label="Portfolio">
+      <div class="section-heading">
+        <div class="about-label">Radovi</div>
+        <h2 class="section-title">Moj rad</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item tilt-card">
+          <img src="images/image1.jpg" alt="Portret 1" class="lightbox-thumb" />
+          <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
+        </div>
+        <div class="gallery-item tilt-card">
+          <img src="images/image2.jpg" alt="Portret 2" class="lightbox-thumb" />
+          <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
+        </div>
+        <div class="gallery-item tilt-card">
+          <img src="images/image6.jpg" alt="Portret 3" class="lightbox-thumb" />
+          <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
+        </div>
+        <div class="gallery-item tilt-card">
+          <img src="images/image7.jpg" alt="Portret 4" class="lightbox-thumb" />
+          <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
+        </div>
+        <div class="gallery-item tilt-card">
+          <img src="images/image8.jpg" alt="Portret 5" class="lightbox-thumb" />
+          <div class="gallery-overlay"><i class="fa fa-expand"></i></div>
+        </div>
+      </div>
+
+      <div class="gallery-cta">
+        <a href="radovi.html" class="button">Pogledaj sve radove</a>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Lightbox">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Zatvori">&times;</button>
+      <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+      <div class="lightbox-controls">
+        <button class="lightbox-prev" id="lightbox-prev" aria-label="Prethodna">&#8592;</button>
+        <button class="lightbox-next" id="lightbox-next" aria-label="Sledeća">&#8594;</button>
+      </div>
     </div>
-    <div class="hero-image">
-      <img src="images/naslovna.png" alt="Photographer"  />
-</div>
-  </section>
-<style>
-  .bgcl {
-   position: relative;
-    color: #fff;
-    -webkit-animation-stroke: 00.3s rgb(169, 88, 48) ;
-    text-transform: uppercase;
-  }
- .bgcl::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    color: #ff7631ff;
-    -webkit-background-stroke: 00.3px #ff7631ff;
-    border-right: 2px solid #ff7631ff;
-    overflow: hidden;
-    animation: animate 6s linear infinite;
-  } 
-  @keyframes animate {
-  0% {
-    width: 0;
-  }
-  25% {
-    width: 80%;
-  }
-  50% {
-    width: 100%;
-  }
-  60% {
-    width: 100%;
-  }
-  75% {
-    width: 100%;
-  }
-  100% {
-    width: 0;
-  }
-}
-</style>
-<section class="about fade-section" id="about">
-  <div class="about-content">
-    <h2>O meni</h2>
-    <p>Ja sam Stevan Radojčin, portretni fotograf i vizuelni umetnik iz Srbije, rođen 2000. godine.  
-Moja strast prema fotografiji ogleda se u hvatanju autentičnih emocija i izraza koji govore više od reči.  
-Spajam savremeni stil sa dubinom, uvek tragajući za pričom koja se krije iza pogleda</p>
-  </div>
-</section>
 
-  <section class="stats fade-section">
-    <div class="stat">
-      <h2>98</h2>
-      <p>Zadovoljnih klijenata</p>
+    <!-- USLUGE -->
+    <section class="services fade-section" id="services">
+      <div class="section-heading">
+        <div class="about-label">Šta nudim</div>
+        <h2 class="section-title">Usluge</h2>
+        <p>Fotografija koja spaja emociju, estetiku i priču brenda ili osobe ispred objektiva.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card tilt-card">
+          <div class="service-icon"><i class="fas fa-user"></i></div>
+          <h3>Portretne sesije</h3>
+          <p>Autentični portreti koji ističu karakter, stav i emociju kroz pažljivo vođenu sesiju.</p>
+        </article>
+        <article class="service-card tilt-card">
+          <div class="service-icon"><i class="fas fa-calendar-check"></i></div>
+          <h3>Događaji i proslave</h3>
+          <p>Diskretno beleženje ključnih trenutaka uz fokus na atmosferu, detalje i spontanost.</p>
+        </article>
+        <article class="service-card tilt-card">
+          <div class="service-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Kreativni editorijali</h3>
+          <p>Vizuelno snažne serije fotografija za umetničke projekte, kampanje i lični identitet.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PAKETI -->
+    <section class="pricing fade-section" id="pricing">
+      <div class="section-heading">
+        <div class="about-label">Cenovnik</div>
+        <h2 class="section-title">Paketi</h2>
+        <p>Transparentne opcije koje možeš lako prilagoditi svojim potrebama i viziji.</p>
+      </div>
+      <div class="pricing-grid">
+        <article class="pricing-card tilt-card">
+          <p class="pricing-label">Basic</p>
+          <p class="pricing-price">od 90€</p>
+          <ul class="pricing-features">
+            <li>Do 60 minuta snimanja</li>
+            <li>10 obrađenih fotografija</li>
+            <li>Online galerija za preuzimanje</li>
+          </ul>
+          <a class="button pricing-cta" href="#contact">Rezerviši termin</a>
+        </article>
+        <article class="pricing-card featured tilt-card">
+          <div class="featured-badge">Najpopularnije</div>
+          <p class="pricing-label">Pro</p>
+          <p class="pricing-price">od 170€</p>
+          <ul class="pricing-features">
+            <li>Do 2 sata snimanja</li>
+            <li>25 obrađenih fotografija</li>
+            <li>2 lokacije i pomoć oko koncepta</li>
+          </ul>
+          <a class="button pricing-cta" href="#contact">Najtraženiji paket</a>
+        </article>
+        <article class="pricing-card tilt-card">
+          <p class="pricing-label">Premium</p>
+          <p class="pricing-price">od 280€</p>
+          <ul class="pricing-features">
+            <li>Pola dana snimanja</li>
+            <li>50+ obrađenih fotografija</li>
+            <li>Kreativni plan i prioritetna obrada</li>
+          </ul>
+          <a class="button pricing-cta" href="#contact">Kreiraj ponudu</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- UTISCI -->
+    <section class="testimonials fade-section" id="reviews">
+      <div class="section-heading">
+        <div class="about-label">Klijenti</div>
+        <h2 class="section-title">Utisci klijenata</h2>
+        <p>Najvažnije mi je da se ljudi osećaju opušteno i da fotografije ostanu vredne i posle mnogo godina.</p>
+      </div>
+      <div class="testimonials-grid">
+        <article class="testimonial-card tilt-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Nikada nisam volela da se fotografišem, ali Stevan je učinio da se osećam sigurno i prirodno."</p>
+          <p class="testimonial-author">Milica · @milicam</p>
+        </article>
+        <article class="testimonial-card tilt-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Fotke sa eventa izgledaju kao kadar iz filma. Svaki bitan momenat je uhvaćen."</p>
+          <p class="testimonial-author">Nikola · Creative Lead</p>
+        </article>
+        <article class="testimonial-card tilt-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Dobio sam i više nego što sam očekivao — vrhunska obrada, komunikacija i energija na setu."</p>
+          <p class="testimonial-author">Jovan · @jovan.jpg</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ČESTA PITANJA -->
+    <section class="faq fade-section" id="faq">
+      <div class="section-heading">
+        <div class="about-label">FAQ</div>
+        <h2 class="section-title">Česta pitanja</h2>
+        <p>Kratki odgovori na stvari koje klijenti najčešće pitaju pre rezervacije.</p>
+      </div>
+      <div class="faq-list">
+        <article class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Kako izgleda proces rada?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Dogovaramo ideju, lokaciju i stil, zatim sledi snimanje i selekcija, a finalne fotografije isporučujem kroz online galeriju.</p>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Da li pomažeš oko poziranja?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Da — vodim te kroz ceo proces, od držanja tela do sitnih korekcija izraza, kako bi sve delovalo prirodno.</p>
+          </div>
+        </article>
+        <article class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Koliko se čeka na fotografije?
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Standardni rok je 5–10 dana, a za veće projekte se dogovaramo unapred kako bi očekivanja bila potpuno jasna.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section fade-section" id="booking">
+      <div class="cta-content">
+        <p class="cta-eyebrow">Spreman/na za sledeći korak?</p>
+        <h2>Hajde da zajedno napravimo seriju fotografija koja ostavlja utisak.</h2>
+        <p>Pošalji poruku, opiši ideju i dobićeš jasan predlog kako da je pretvorimo u vizuelnu priču.</p>
+        <div class="cta-actions">
+          <a class="button" href="#contact">Zakaži snimanje</a>
+          <a class="cta-link" href="https://www.instagram.com/stewdzi.ph/" target="_blank" rel="noreferrer">
+            <i class="fa-brands fa-instagram"></i> Pogledaj Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="contact-section fade-section" id="contact">
+      <div class="contact-wrapper">
+        <div class="contact-image">
+          <img src="images/portrait.jpeg" alt="Stevan Radojčin portret" />
+          <div class="contact-img-glow"></div>
+        </div>
+
+        <div class="form-container">
+          <div class="about-label">Kontakt</div>
+          <h2>Pišite mi</h2>
+          <p>Ako ti treba više informacija o mom radu, uslugama koje nudim ili želiš da me angažuješ,
+            popuni formu ispod ili klikni na dugme za WhatsApp.</p>
+
+          <form id="contactForm" action="/send-email" method="POST" novalidate>
+            <div class="form-group">
+              <label for="name">Ime</label>
+              <input type="text" id="name" name="name" placeholder="Tvoje ime" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="email@primer.com" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Poruka</label>
+              <textarea id="message" name="message" rows="5" placeholder="Opiši ideju ili pitaj šta te zanima..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+              <span>Pošalji poruku</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+
+          <div class="contact-divider"><span>ili</span></div>
+
+          <a class="whatsapp-btn"
+             href="https://wa.me/381641284743?text=Zdravo%2C%20želim%20više%20informacija%20o%20tvojim%20uslugama."
+             target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp poruka
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="Stewdzi Photography" />
+      </div>
+      <p>&copy; 2025 Stevan Radojčin · Sva prava zadržana.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/stewdzi.ph" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/stevan.radojcin" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="mailto:stevan.radojcin123@gmail.com" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="tel:+381641284743" aria-label="Telefon">
+          <i class="fas fa-phone"></i>
+        </a>
+      </div>
     </div>
-    <div class="stat">
-      <h2>54</h2>
-      <p>Završenih projekata</p>
-    </div>
-    <div class="stat">
-      <h2>9/10</h2>
-      <p>Prosečna ocena</p>
-    </div>
-  </section>
+  </footer>
 
-<section class="gallery fade-section" id="portfolio">
-  <h2>Moj rad</h2>
-  <div class="gallery-grid">
-    <img src="images/image1.jpg" alt="Slika 1" class="lightbox-thumb">
-    <img src="images/image2.jpg" alt="Slika 2" class="lightbox-thumb">
-    <img src="images/image6.jpg" alt="Slika 3" class="lightbox-thumb">
-    <img src="images/image7.jpg" alt="Slika 4" class="lightbox-thumb">
-    <img src="images/image8.jpg" alt="Slika 1" class="lightbox-thumb">
-    <!-- Dodaj još slika po potrebi -->
-  </div>
-
-  <div class="lightbox" id="lightbox" style="display:none;">
-    <span class="lightbox-close" id="lightbox-close">&times;</span>
-    <img class="lightbox-img" id="lightbox-img" src="" alt="">
-
-    <div class="lightbox-controls">
-      <button class="lightbox-prev" id="lightbox-prev">&#8592;</button>
-      <button class="lightbox-next" id="lightbox-next">&#8594;</button>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="contact-section fade-section" id="contact">
-  <div class="contact-wrapper">
-    <div class="contact-image">
-      <img src="images/portrait.jpeg" alt="Contact Image">
-    </div>
-    <div>
-      <h2>KONTAKT</h2>
-      <p>
-        Ako ti treba više informacija o mom radu, uslugama koje nudim ili želiš da me angažuješ,<br>
-        klikni na dugme ispod i javi mi se direktno preko WhatsApp-a
-      </p>
-
-      <a class="whatsapp-btn"
-         href="https://wa.me/381641284743?text=Zdravo%2C%20želim%20više%20informacija%20o%20tvojim%20uslugama."
-         target="_blank">
-        <i class="fab fa-whatsapp"></i> Pošalji poruku
-      </a>
-    </div>
-  </div>
-</section>
-<style>
-    .contact-section {
-      padding: 60px 20px;
-      background-color: #f9f5ff;
-      font-family: "Montserrat", sans-serif;
-      color: #14213d;
-    }
-
-    .contact-wrapper {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 40px;
-    }
-
-    .contact-image {
-      flex: 1 1 300px;
-      text-align: center;
-    }
-
-    .contact-image img {
-      max-width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      object-fit: cover;
-    }
-
-    .contact-wrapper > div:last-child {
-      flex: 1 1 400px;
-    }
-
-    .contact-wrapper h2 {
-      font-size: 48px;
-      color: #14213d;
-      margin-bottom: 20px;
-    }
-
-    .contact-wrapper p {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 40px;
-      color: #444;
-    }
-
-    .whatsapp-btn {
-      display: inline-flex;
-      align-items: center;
-      background-color: #25d366;
-      color: white;
-      padding: 14px 26px;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease;
-    }
-
-    .whatsapp-btn:hover {
-      background-color: #1ebe5d;
-      transition: background-color 0.3s ease;
-    }
-
-    .whatsapp-btn i {
-      margin-right: 12px;
-      font-size: 22px;
-    }
-
-    /* Responsive */
-    @media (max-width: 700px) {
-      .contact-wrapper {
-        flex-direction: column;
-      }
-
-      .contact-wrapper > div:last-child {
-        flex: unset;
-        width: 100%;
-      }
-
-      .contact-image {
-        flex: unset;
-        width: 100%;
-      }
-    }
-  </style>
-<footer class="site-footer">
-  <div class="footer-content">
-    <p>&copy; 2025 Stevan Radojčin. Sva prava zadržana.</p>
-    <div class="footer-socials">
-      <a href="https://instagram.com/stewdzili" target="_blank">Instagram</a>
-      <a href="mailto:stevan.radojcin123@gmail.com">Email</a>
-      <a href="tel:0641284743">Telefon</a>
-    </div>
-  </div>
-</footer>
-
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
-
 </html>
